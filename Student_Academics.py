@@ -292,7 +292,7 @@ class StudentAcademics:
             return True
 
     def database_connection(self):
-        con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+        con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
         cur1 = con.cursor()
         cur1.execute(f"""SELECT `Student's Name`, `Branch`, `E-mail ID`, `Contact No.`, `Face Image`
                          FROM Student WHERE `Admission No.` = '{self.admission.get()}';""")
@@ -360,7 +360,7 @@ class StudentAcademics:
         elif self.st_marks_validation():
             messagebox.showerror('Out of Range', 'Sessional test marks should be less than or equal to 100 !!')
         else:
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur = con.cursor()
             cur.execute(f"""UPDATE Academics SET coa_ct1 = {self.coa_ct1.get()}, coa_ct2 = {self.coa_ct2.get()},
                         coa_st1 = {self.coa_st1.get()}, coa_ct3 = {self.coa_ct3.get()},
