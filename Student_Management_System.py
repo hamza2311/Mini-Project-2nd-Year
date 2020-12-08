@@ -303,7 +303,7 @@ class StudentManagementSystem:
         elif self.address_entry.get(1.0) == '':
             messagebox.showerror('Required Field', 'Please provide a reachable address !!')
         else:
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur1 = con.cursor()
             cur1.execute(
                 "SELECT * FROM Student WHERE `Admission No.` = '" + str(self.admission_number_entry.get()) + "';")
@@ -337,7 +337,7 @@ class StudentManagementSystem:
                 messagebox.showinfo('Success', 'Record has been added successfully !!')
 
     def fetch_data(self):
-        con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+        con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
         cur = con.cursor()
         cur.execute('''SELECT `Admission No.`, `Student's Name`, Gender, `Father's Name`, `Mother's Name`,
                        `E-mail ID`, `Contact No.`, Branch, `Date of Birth`, `Residential Address` FROM Student;''')
@@ -430,7 +430,7 @@ class StudentManagementSystem:
             messagebox.showinfo('Verified', 'OTP has been verified successfully', parent=self.root)
             self.otp_window_update.destroy()
             d_o_b = self.dob_day.get() + ' ' + self.dob_month.get() + ' ' + self.dob_year.get()
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur1 = con.cursor()
             cur1.execute(
                 "UPDATE Student SET `Student's Name` = %s, Gender = %s, `Father's Name` = %s, `Mother's Name` = %s, `E-mail ID` = %s, Branch = %s, `Date of Birth` = %s, `Residential Address` = %s WHERE `Admission No.` = %s;",
@@ -461,7 +461,7 @@ class StudentManagementSystem:
         if self.otp_entry_update.get() == self.otp_delete:
             messagebox.showinfo('Verified', 'OTP has been verified successfully', parent=self.root)
             self.otp_window_delete.destroy()
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur = con.cursor()
             sql_query = "DELETE FROM Student WHERE `Admission No.` = '%s';"
             args = (self.admission_number_entry.get())
@@ -484,7 +484,7 @@ class StudentManagementSystem:
         elif self.search_combo.get() == 'E-mail ID' and self.search_entry.get() == '':
             messagebox.showerror('Required Field', 'Please enter the E-mail ID !!', parent=self.root)
         else:
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur = con.cursor()
             cur.execute("SELECT `Admission No.`, `Student's Name`, Gender, `Father's Name`, `Mother's Name`, `E-mail ID`, `Contact No.`, Branch, `Date of Birth`, `Residential Address` FROM Student WHERE `" + self.search_combo.get() + "` = '" + self.search_entry.get() + "';")
             rows = cur.fetchall()
