@@ -177,7 +177,7 @@ class StudentAcademics:
         self.student_profile.config(image=self.student_image)
 
     def database_connection(self):
-        con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+        con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
         cur1 = con.cursor()
         cur1.execute(f"""SELECT `Student's Name`, `Branch`, `E-mail ID`, `Contact No.`, `Face Image`
                          FROM Student WHERE `Admission No.` = '{self.admission.get()}';""")
@@ -265,7 +265,7 @@ class StudentAcademics:
         if file_upload == '':
             messagebox.showerror('Error', 'Please select a file to upload !!', parent=self.root)
         else:
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur = con.cursor()
             cur.execute(f"""UPDATE Student SET `Face Image` = '{file_upload}'
                             WHERE `E-mail ID` = '{self.email.cget("text")}';""")
