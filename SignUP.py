@@ -203,7 +203,7 @@ class LoginSystem:
             messagebox.showerror(error_title, types_of_errors[12], parent=self.root)
         else:
             try:
-                con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+                con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
                 cur = con.cursor()
                 cur.execute("SELECT * FROM SignUP WHERE `E-mail ID` = '"+str(self.email_entry.get())+"';")
                 row = cur.fetchone()
