@@ -128,7 +128,7 @@ class LoginSystem:
         if self.email_entry.get() == '':
             messagebox.showerror('Error', 'Please enter your email address to change password !!', parent=self.root)
         else:
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur = con.cursor()
             cur.execute(f"""SELECT * FROM SignUP WHERE `E-mail ID` = '{self.email_entry.get()}';""")
             row = cur.fetchone()
@@ -177,7 +177,7 @@ class LoginSystem:
         elif self.new_password_validation():
             messagebox.showerror('Error', 'Password must contain a number, an uppercase letter, a lowercase letter, a special character and must of length between 8 and 20 !!')
         else:
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur = con.cursor()
             cur.execute(f'''SELECT * FROM SignUP WHERE `Security Question` = "{self.security_question_combo.get()}"
                             AND Answer = "{self.security_answer_entry.get()}"
@@ -199,7 +199,7 @@ class LoginSystem:
         images = []
         encode_list = []
         names = []
-        con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+        con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
         cur = con.cursor()
         cur.execute('SELECT `Face Image`, `First Name` FROM SignUp;')
         records = cur.fetchall()
@@ -259,7 +259,7 @@ class LoginSystem:
         elif self.password_validation():
             messagebox.showerror('Invalid Format', 'Password did not match the validations', parent=self.root)
         else:
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur = con.cursor()
             cur.execute("SELECT * FROM SignUp WHERE `E-mail ID` = '" + str(self.email_entry.get()) + "' "
                         + "AND Password = '" + str(self.password_entry.get()) + "';")
@@ -283,7 +283,7 @@ class LoginSystem:
         elif self.password_validation():
             messagebox.showerror('Invalid Format', 'Password did not match the validations', parent=self.root)
         else:
-            con = MySQLdb.connect(host='localhost', user='root', password='', database='Sign_Up')
+            con = MySQLdb.connect(host='localhost', user='root', password='1234', database='Sign_Up')
             cur = con.cursor()
             cur.execute("SELECT * FROM SignUp WHERE `E-mail ID` = '" + str(self.email_entry.get()) + "' "
                         + "AND Password = '" + str(self.password_entry.get()) + "';")
